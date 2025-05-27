@@ -31,7 +31,7 @@ export abstract class AbstractRepository<T extends AbstractEntity> {
     update: UpdateQuery<T>,
   ): Promise<T> {
     const document = await this.model
-      .findByIdAndUpdate(filterQuery, update, {
+      .findOneAndUpdate(filterQuery, update, {
         new: true,
       })
       .lean<T | null>();

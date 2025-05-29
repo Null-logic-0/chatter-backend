@@ -2,7 +2,7 @@ import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
 import { ValidationPipe } from '@nestjs/common';
 import { Logger } from 'nestjs-pino';
-import * as cookieParesr from 'cookie-parser';
+import cookieParesr from 'cookie-parser';
 import { ConfigService } from '@nestjs/config';
 
 async function bootstrap() {

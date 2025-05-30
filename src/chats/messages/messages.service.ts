@@ -6,7 +6,6 @@ import { GetMessagesArgs } from './dto/get-messages.args';
 import { PubSub } from 'graphql-subscriptions';
 import { MESSAGE_CREATED } from './constants/pubsub-triggers';
 import { PUB_SUB } from 'src/common/constants/injection-tokens';
-import { MessageCreatedArgs } from './dto/message-created.args';
 import { MessageDocument } from './entities/message.document';
 import { Message } from './entities/message.entity';
 import { UsersService } from 'src/users/users.service';

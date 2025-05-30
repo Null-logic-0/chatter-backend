@@ -3,8 +3,8 @@ import { ChatsService } from './chats.service';
 import { ChatsResolver } from './chats.resolver';
 import { ChatsRepository } from './chats.repository';
 import { MongooseModule } from '@nestjs/mongoose';
-import { ChatSchema } from './entities/chat.entity';
 import { MessagesModule } from './messages/messages.module';
+import { ChatSchema } from './entities/chat.document';
 
 @Module({
   imports: [
@@ -12,6 +12,6 @@ import { MessagesModule } from './messages/messages.module';
     forwardRef(() => MessagesModule),
   ],
   providers: [ChatsResolver, ChatsService, ChatsRepository],
-  exports: [ChatsRepository, ChatsService],
+  exports: [ChatsRepository],
 })
 export class ChatsModule {}

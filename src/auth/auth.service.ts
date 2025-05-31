@@ -27,6 +27,8 @@ export class AuthService {
     response.cookie('Authentication', token, {
       httpOnly: true,
       expires,
+      secure: process.env.NODE_ENV === 'production',
+      sameSite: process.env.NODE_ENV === 'production' ? 'none' : 'lax',
     });
   }
   verifyWS(request: Request): TokenPayload {

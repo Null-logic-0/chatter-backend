@@ -11,7 +11,7 @@ async function bootstrap() {
     origin: [
       'http://localhost:5173',
       'http://localhost:4173',
-      'https://thechatter-423dc45d8040.herokuapp.com',
+      'https://chatter-eight-psi.vercel.app',
     ],
     credentials: true,
   });

@@ -1,0 +1,5 @@
+const USERS_BUCKET = 'the-chatter';
+
+const USERS_IMAGE_FILE_EXTENSION = 'jpg';
+
+export { USERS_BUCKET, USERS_IMAGE_FILE_EXTENSION };

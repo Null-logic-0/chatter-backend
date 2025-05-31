@@ -45,7 +45,7 @@ export class MessagesService {
   }
 
   async getMessages({ chatId }: GetMessagesArgs) {
-    return this.chatsRepository.model.aggregate([
+    const messages = await this.chatsRepository.model.aggregate([
       { $match: { _id: new Types.ObjectId(chatId) } },
       { $unwind: '$messages' },
       { $replaceRoot: { newRoot: '$messages' } },
@@ -61,6 +61,11 @@ export class MessagesService {
       { $unset: 'userId' },
       { $set: { chatId } },
     ]);
+
+    for (const message of messages) {
+      message.user = this.usersService.toEntity(message.user);
+    }
+    return messages;
   }
   messageCreated() {
     return this.pubSub.asyncIterableIterator(MESSAGE_CREATED);

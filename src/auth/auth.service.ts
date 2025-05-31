@@ -49,6 +49,8 @@ export class AuthService {
     response.cookie('Authentication', '', {
       httpOnly: true,
       expires: new Date(),
+      secure: process.env.NODE_ENV === 'production',
+      sameSite: process.env.NODE_ENV === 'production' ? 'none' : 'lax',
     });
   }
 }

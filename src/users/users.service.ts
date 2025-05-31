@@ -10,7 +10,7 @@ import { UsersRepository } from './users.repository';
 import { S3Service } from 'src/common/s3/s3.service';
 import { USERS_BUCKET, USERS_IMAGE_FILE_EXTENSION } from './users.constants';
 import { UserDocument } from './entities/user.document';
-import { UserInterface } from './interface/user.interface';
+import { User } from './entities/user.entity';
 
 @Injectable()
 export class UsersService {
@@ -94,7 +94,7 @@ export class UsersService {
     return this.toEntity(user);
   }
 
-  toEntity(userDocument: UserDocument): UserInterface {
+  toEntity(userDocument: UserDocument): User {
     const user = {
       ...userDocument,
       imageUrl: this.s3Service.getObjectUrl(
